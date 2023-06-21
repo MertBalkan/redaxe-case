@@ -15,7 +15,9 @@ namespace RedAxeCase
         private void Start()
         {
             int randomIndex = Random.Range(0, _carSpawnPointManager.CarCount);
-            Instantiate(_carSpawnPointManager.Cars[randomIndex], transform.localPosition, transform.localRotation);
+            var car = Instantiate(_carSpawnPointManager.Cars[randomIndex], transform.localPosition, transform.localRotation);
+
+            car.GetComponent<RCC_CarControllerV3>().enabled = false;
         }
     }
 }
