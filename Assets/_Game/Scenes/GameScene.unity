@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510784148778855747, guid: 4c15884b6f1df344fa910426abd94fa1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1510784148778855747, guid: 4c15884b6f1df344fa910426abd94fa1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -641,7 +641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4927013c44ecc094daf5d59bbee0475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1281182075}
+  colorRandomizer:
+    randomizedMaterials: []
+  carPropertyRandomizer:
+    carSpeed: 0
+    engineTorque: 0
 --- !u!1 &1295930039
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +930,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4927013c44ecc094daf5d59bbee0475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1855888114}
+  colorRandomizer:
+    randomizedMaterials: []
+  carPropertyRandomizer:
+    carSpeed: 0
+    engineTorque: 0
 --- !u!1 &2056452256
 GameObject:
   m_ObjectHideFlags: 0
