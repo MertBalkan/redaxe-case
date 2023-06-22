@@ -11955,6 +11955,8 @@ GameObject:
   - component: {fileID: 6717690585928178574}
   - component: {fileID: 6717690585928178575}
   - component: {fileID: 6717690585928178568}
+  - component: {fileID: -8125694922926831534}
+  - component: {fileID: -4746417491521840387}
   m_Layer: 8
   m_Name: Jeep
   m_TagString: Player
@@ -12317,6 +12319,31 @@ MonoBehaviour:
   useNOS: 0
   useTurbo: 0
   attachedTrailer: {fileID: 0}
+--- !u!114 &-8125694922926831534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717690585928178569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5cdb24a87e3c64dbc392f915624755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizedMaterials: []
+--- !u!114 &-4746417491521840387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717690585928178569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4927013c44ecc094daf5d59bbee0475f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7526232185769896995
 GameObject:
   m_ObjectHideFlags: 0

@@ -10149,6 +10149,8 @@ GameObject:
   - component: {fileID: 4098342761211702944}
   - component: {fileID: 4098342761211702947}
   - component: {fileID: 4098342761211702946}
+  - component: {fileID: -2906094474463922307}
+  - component: {fileID: -7929726128498850539}
   m_Layer: 8
   m_Name: Pickup
   m_TagString: Player
@@ -10510,6 +10512,31 @@ MonoBehaviour:
   useNOS: 0
   useTurbo: 0
   attachedTrailer: {fileID: 0}
+--- !u!114 &-2906094474463922307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098342761211702973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5cdb24a87e3c64dbc392f915624755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomizedMaterials: []
+--- !u!114 &-7929726128498850539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098342761211702973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4927013c44ecc094daf5d59bbee0475f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4098342761233487120
 GameObject:
   m_ObjectHideFlags: 0
