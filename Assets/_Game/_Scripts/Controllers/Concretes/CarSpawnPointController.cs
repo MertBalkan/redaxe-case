@@ -6,6 +6,10 @@ namespace RedAxeCase
 {
     public class CarSpawnPointController : MonoBehaviour
     {
+        [SerializeField] private CarSettingsCanvas carSettingsCanvas;
+        [SerializeField] private bool leftLook;
+        [SerializeField] private float canvasSpawnRot = 45;
+        
         private CarSpawnPointManager _carSpawnPointManager;
 
         private void Awake()
@@ -20,6 +24,11 @@ namespace RedAxeCase
 
             car.GetComponent<RCC_CarControllerV3>().canControl = false;
             CallCoroutines(car);
+
+            Quaternion quat = new Quaternion();
+
+            quat = leftLook == true ? quat = Quaternion.Euler(0, transform.rotation.y - canvasSpawnRot, 0) :  quat = Quaternion.Euler(0, transform.rotation.y + canvasSpawnRot, 0);
+            Instantiate(carSettingsCanvas, transform.localPosition + new Vector3(2, 5, 2), quat);
         }
 
         private void CallCoroutines(Transform car)

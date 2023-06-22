@@ -2,6 +2,6 @@ namespace RedAxeCase
 {
     public interface ICarRandomizePart
     {
-        void Randomize();
+        void Randomize(BasePartPanel partPanel);
     }
 }

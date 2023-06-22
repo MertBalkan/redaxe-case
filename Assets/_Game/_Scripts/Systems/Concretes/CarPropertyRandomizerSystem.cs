@@ -1,18 +1,22 @@
 namespace RedAxeCase
 {
-    public class  CarPropertyRandomizerSystem : ICarRandomizePart
+    public class CarPropertyRandomizerSystem : ICarRandomizePart
     {
         private ICarController _carController;
+        private PropertyPartPanel _tabPanel;
+
         private float _carSpeed;
         private float _engineTorque;
 
-        public CarPropertyRandomizerSystem(ICarController carController)
+        public CarPropertyRandomizerSystem(ICarController carController, PropertyPartPanel tabPanel)
         {
             _carController = carController;
+            _tabPanel = tabPanel;
         }
         
-        public void Randomize()
+        public void Randomize(BasePartPanel partPanel)
         {
+            
             _carSpeed = UnityEngine.Random.Range(200, 280);
             _engineTorque = UnityEngine.Random.Range(350, 480);
             
@@ -23,6 +27,8 @@ namespace RedAxeCase
         {
             _carController.Controller.maxspeed = _carSpeed;
             _carController.Controller.maxEngineTorque = _engineTorque;
+            
+            _tabPanel.AddNewPart();
         }
     }
 }

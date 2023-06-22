@@ -9,6 +9,9 @@ namespace RedAxeCase
         public const string CarRimMat = "Rim";
 
         private ICarController _carController;
+        private ITabPanel _tabPanel;
+
+        
         private MeshRenderer[] _meshRenderers;
 
         private List<Material> _randomizedMaterials;
@@ -24,7 +27,7 @@ namespace RedAxeCase
             _randomizedMaterials = new List<Material>();
         }
         
-        public void Randomize()
+        public void Randomize(BasePartPanel partPanel)
         {
             var randBodyColor = GetRandomColor();
             var randRimColor = GetRandomColor();

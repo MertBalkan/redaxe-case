@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RedAxeCase
@@ -7,6 +8,8 @@ namespace RedAxeCase
     public class CarController : MonoBehaviour, ICarController
     {
         [SerializeField] private List<Material> randomizedMaterials;
+        [Header("=====Car Part Panels=====")]
+        [SerializeField] private PropertyPartPanel partPanels;
         private RCC_CarControllerV3 _controller;
         
         private ICarRandomizePart _randomizedDamage;
@@ -19,20 +22,23 @@ namespace RedAxeCase
         private void Awake()
         {
             _controller = GetComponent<RCC_CarControllerV3>();
+            partPanels = FindObjectOfType<PropertyPartPanel>();
             
             _randomizedColor = new CarColorRandomizerSystem(this, randomizedMaterials);
-            _randomizedProperty = new CarPropertyRandomizerSystem(this);
+            _randomizedProperty = new CarPropertyRandomizerSystem(this, partPanels);
             _randomizedDamage = new CarDamageRandomizerSystem(this, null);
         }
-        
 
-        private void Start()
+        private void Start() => SetRandomizeParts();
+
+        private void SetRandomizeParts()
         {
-            randomizeParts = new List<ICarRandomizePart>();
-
-            randomizeParts.Add(_randomizedColor);
-            // randomizeParts.Add(_randomizedDamage);
-            randomizeParts.Add(_randomizedProperty);
+            randomizeParts = new List<ICarRandomizePart>
+            {
+                _randomizedColor,
+                _randomizedDamage,
+                _randomizedProperty
+            };   
         }
     }
 }
