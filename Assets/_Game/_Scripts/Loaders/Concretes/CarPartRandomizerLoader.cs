@@ -24,7 +24,7 @@ namespace RedAxeCase
 
         private void StartRandomizer()
         {
-            if(CarGeneralManager.Instance.carDictionary[_carController] != null)
+            if( CarGeneralManager.Instance.carDictionary[_carController] != null)
                 LoadRandomizers(_loader, CarGeneralManager.Instance.carDictionary[_carController]);                
         }
 

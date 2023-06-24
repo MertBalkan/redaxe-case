@@ -10,7 +10,7 @@ namespace RedAxeCase
         public const string CarBodyMat = "Body";
         public const string CarRimMat = "Rim";
 
-        private ICarController _carController;
+        private CarController _carController;
         private ITabPanel _tabPanel;
 
         
@@ -18,7 +18,7 @@ namespace RedAxeCase
 
         private Dictionary<ICarController, Material> _randomizedMaterials;
 
-        public CarColorRandomizerSystem(ICarController carController, Dictionary<ICarController, Material> randomizedMaterials)
+        public CarColorRandomizerSystem(CarController carController, Dictionary<ICarController, Material> randomizedMaterials)
         {
             _carController = carController;
             var carControllerGo = _carController.Controller.gameObject;
@@ -30,24 +30,56 @@ namespace RedAxeCase
         
         public void Randomize(CarTabPanel tabPanel)
         {
-            var randBodyColor = GetRandomColor();
-            var randRimColor = GetRandomColor();
-
-            foreach (var meshRenderer in _meshRenderers)
-            {                  
-                foreach (var mat in meshRenderer.materials)
-                {
-                    if (mat.name.Contains(CarBodyMat))
-                        ChangeCarPartColor("Body ", mat, randBodyColor, tabPanel);
-                    if (mat.name.Contains(CarRimMat))
-                        ChangeCarPartColor("Tires ", mat, randRimColor, tabPanel);
+            int randomizeBodyColor = Random.Range(0, 2);
+            if (randomizeBodyColor == 1)
+            {
+                var randBodyColor = GetRandomColor();
+                foreach (var meshRenderer in _meshRenderers)
+                {                  
+                    foreach (var mat in meshRenderer.materials)
+                    {
+                        if (mat.name.Contains(CarBodyMat))
+                            ChangeCarPartColor("Body ", mat, randBodyColor, tabPanel);
+                    }
                 }
+            }
+            else
+            {
+                ChangeCarPartColor("Body: Default Color", null, Color.black, tabPanel);
+            }
+            
+            int randomizeRimColor = Random.Range(0, 2);
+            
+            if (randomizeRimColor == 1)
+            {
+                var randRimColor = GetRandomColor();
+                foreach (var meshRenderer in _meshRenderers)
+                {                  
+                    foreach (var mat in meshRenderer.materials)
+                    {
+                        if (mat.name.Contains(CarRimMat))
+                            ChangeCarPartColor("Tires ", mat, randRimColor, tabPanel);
+                    }
+                }
+
+                CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= 5;
+            }
+            else
+            {
+                ChangeCarPartColor("Tires: Default Color", null, Color.black, tabPanel);
             }
         }
 
         private void ChangeCarPartColor(string part, Material mat, Color color, CarTabPanel tabPanel)
         {
             var colorPartPanel = tabPanel.GetComponentInChildren<ColorTabPanel>();
+
+            if(mat == null)
+            {
+                colorPartPanel.AddNewPart(part, null);
+                return;
+            }
+            
 
             mat.color = color;
             AddRandomizedMaterial(_carController, mat);
@@ -58,6 +90,10 @@ namespace RedAxeCase
 
         private void AddRandomizedMaterial(ICarController carController, Material mat)
         {
+            if (mat == null)
+            {
+                return;
+            }
             if(!_randomizedMaterials.ContainsKey(carController))
                 _randomizedMaterials.Add(carController, mat);
         }

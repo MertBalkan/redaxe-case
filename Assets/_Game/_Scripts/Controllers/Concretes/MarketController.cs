@@ -9,7 +9,7 @@ namespace RedAxeCase
             var player = other.GetComponent<PlayerCharacterController>();
             if (player != null)
             {
-                Debug.Log("PLAYER");
+                
             }
         }
     }

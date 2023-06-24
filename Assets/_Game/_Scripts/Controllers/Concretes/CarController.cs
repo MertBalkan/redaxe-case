@@ -17,6 +17,7 @@ namespace RedAxeCase
         private ICarRandomizePart _randomizedProperty;
         private ICarRandomizePart _randomizedColor;
         private List<ICarRandomizePart> _randomizeParts;
+        private CarController _carController;
         
         private RCC_CarControllerV3 _controller;
         private CarPartRandomizerLoader _carPartRandomizerLoader;
@@ -41,12 +42,17 @@ namespace RedAxeCase
             _controller = GetComponent<RCC_CarControllerV3>();
             _carPartRandomizerLoader = GetComponent<CarPartRandomizerLoader>();
             randomizedMaterials = new Dictionary<ICarController, Material>();
+            _carController = this;
+
+        }
+
+        private void OnEnable()
+        {
         }
 
         private void Start()
         {
-      
-
+            CarCostCalculatorManager.Instance.InitCarValues(_carController);
         }
         
         public void SetRandomizeParts()

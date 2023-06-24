@@ -17,7 +17,6 @@ namespace RedAxeCase
 
         public void Randomize(CarTabPanel tabPanel)
         {
-            // Debug.LogWarning("Test");
         }
     }
 }
