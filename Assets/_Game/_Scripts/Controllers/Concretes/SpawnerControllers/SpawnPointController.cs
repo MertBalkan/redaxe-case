@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,8 +20,6 @@ namespace RedAxeCase
             var car = Instantiate(_spawnPointManager.Cars[randomIndex], transform.localPosition, transform.localRotation);
 
             _carController = car.GetComponent<CarController>();
-            
-            // OnEntitySpawn?.Invoke(_carController);
         }
 
         private IEnumerator Start()

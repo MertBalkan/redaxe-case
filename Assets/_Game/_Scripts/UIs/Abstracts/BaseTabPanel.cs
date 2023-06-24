@@ -7,14 +7,14 @@ namespace RedAxeCase
 {
     public abstract class BaseTabPanel<T> : MonoBehaviour where T : BaseCarPartUI
     {
+        [SerializeField] private T partUI;
+        private Vector3 _originalSize;
+        
         private IEnumerator Start()
         {
             yield return new WaitForSeconds(0.4f);
             gameObject.SetActive(false);
         }
-
-        [SerializeField] private T partUI;
-        private Vector3 _originalSize;
 
         public void AddNewPart<T>(T partName, Image partImage)
         {

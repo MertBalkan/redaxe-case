@@ -22,11 +22,10 @@ namespace RedAxeCase
 
         private void Update()
         {
-            foreach (var keyValuePair in carValueDictionary)
-            {
-                Debug.LogWarning(keyValuePair.Key + "," + keyValuePair.Value);
-                
-            }
+            // foreach (var keyValuePair in carValueDictionary)
+            // {
+            //     // Debug.LogWarning(keyValuePair.Key + "," + keyValuePair.Value);
+            // }
         }
     }
 }
