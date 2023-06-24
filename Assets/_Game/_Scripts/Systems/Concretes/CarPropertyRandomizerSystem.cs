@@ -35,7 +35,6 @@ namespace RedAxeCase
             }
             
             var propertyPartPanel = tabPanel.GetComponentInChildren<PropertyTabPanel>();
-
             CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= (int)_carSpeed;
             CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= (int)_engineTorque;
             CarCostCalculatorManager.Instance.carValueDictionary[_carController] += ((int)Mathf.Floor(_suspensionsDistance) * 100);
