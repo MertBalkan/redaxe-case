@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RedAxeCase
 {
-    public class CarSpawnPointManager : MonoBehaviour
+    public class SpawnPointManager : MonoBehaviour
     {
         [SerializeField] private List<Transform> cars;
         public List<Transform> Cars => cars;

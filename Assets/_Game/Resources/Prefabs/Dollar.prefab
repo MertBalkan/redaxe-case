@@ -599,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4903796713343349540}
   - component: {fileID: 4442793962848697826}
+  - component: {fileID: 3203505902611665143}
   m_Layer: 0
   m_Name: Dollar
   m_TagString: Untagged
@@ -634,6 +635,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 816ff24d1c2821e4299fa69718adf477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3203505902611665143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5712281273016166814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98c60b7485557b4f87938d44e82390c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6293495006728220471

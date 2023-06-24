@@ -218,6 +218,9 @@ GameObject:
   m_Component:
   - component: {fileID: 471980332}
   - component: {fileID: 471980333}
+  - component: {fileID: 471980336}
+  - component: {fileID: 471980335}
+  - component: {fileID: 471980334}
   m_Layer: 0
   m_Name: CarSpawnPointController
   m_TagString: Untagged
@@ -252,8 +255,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b68af316c3f7cc4695167fba27de8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: {fileID: 4903796713343349540, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
-  costText: {fileID: 0}
+  carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
+  leftLook: 1
+  canvasSpawnRot: 45
+--- !u!114 &471980334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471980331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fc8790e8a040141888b7306a4a3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dollar: {fileID: 3203505902611665143, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
+--- !u!114 &471980335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471980331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e475b85248b73b45b4d8b46421b6f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &471980336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471980331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f606030fc18942b45bbd8d0590542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
   leftLook: 1
   canvasSpawnRot: 45
@@ -638,6 +679,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1002555221}
   - component: {fileID: 1002555222}
+  - component: {fileID: 1002555225}
+  - component: {fileID: 1002555224}
+  - component: {fileID: 1002555223}
   m_Layer: 0
   m_Name: CarSpawnPointController
   m_TagString: Untagged
@@ -672,11 +716,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b68af316c3f7cc4695167fba27de8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: {fileID: 4903796713343349540, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
-  costText: {fileID: 0}
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
-  leftLook: 0
-  canvasSpawnRot: -45
+  leftLook: 1
+  canvasSpawnRot: 45
+--- !u!114 &1002555223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002555220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fc8790e8a040141888b7306a4a3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dollar: {fileID: 3203505902611665143, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
+--- !u!114 &1002555224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002555220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e475b85248b73b45b4d8b46421b6f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1002555225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002555220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f606030fc18942b45bbd8d0590542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
+  leftLook: 1
+  canvasSpawnRot: 45
 --- !u!1001 &1159162294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -744,6 +826,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1295930040}
   - component: {fileID: 1295930041}
+  - component: {fileID: 1295930044}
+  - component: {fileID: 1295930043}
+  - component: {fileID: 1295930042}
   m_Layer: 0
   m_Name: CarSpawnPointController
   m_TagString: Untagged
@@ -778,8 +863,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b68af316c3f7cc4695167fba27de8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: {fileID: 4903796713343349540, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
-  costText: {fileID: 0}
+  carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
+  leftLook: 0
+  canvasSpawnRot: 45
+--- !u!114 &1295930042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295930039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fc8790e8a040141888b7306a4a3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dollar: {fileID: 3203505902611665143, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
+--- !u!114 &1295930043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295930039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e475b85248b73b45b4d8b46421b6f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1295930044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295930039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f606030fc18942b45bbd8d0590542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
   leftLook: 0
   canvasSpawnRot: 45
@@ -858,6 +981,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1498997252}
   - component: {fileID: 1498997253}
+  - component: {fileID: 1498997256}
+  - component: {fileID: 1498997255}
+  - component: {fileID: 1498997254}
   m_Layer: 0
   m_Name: CarSpawnPointController
   m_TagString: Untagged
@@ -892,8 +1018,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b68af316c3f7cc4695167fba27de8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: {fileID: 4903796713343349540, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
-  costText: {fileID: 0}
+  carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
+  leftLook: 0
+  canvasSpawnRot: 45
+--- !u!114 &1498997254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498997251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fc8790e8a040141888b7306a4a3412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dollar: {fileID: 3203505902611665143, guid: 9fa86e4aa35c5774bb9a7d18b271580a, type: 3}
+--- !u!114 &1498997255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498997251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e475b85248b73b45b4d8b46421b6f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1498997256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498997251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5f606030fc18942b45bbd8d0590542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
   leftLook: 0
   canvasSpawnRot: 45
