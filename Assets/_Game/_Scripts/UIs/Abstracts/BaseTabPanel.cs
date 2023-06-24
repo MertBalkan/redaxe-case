@@ -18,8 +18,6 @@ namespace RedAxeCase
 
         public void AddNewPart<T>(T partName, Image partImage)
         {
-            Debug.Log("partUI.name = " + partUI.name);
-
             var propertyPartUI = Instantiate(partUI, transform.position, transform.rotation, transform);
             _originalSize = propertyPartUI.transform.localScale;
             propertyPartUI.transform.localScale = _originalSize;
