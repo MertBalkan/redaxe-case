@@ -189,12 +189,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471980331}
   m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: 7.64, y: 2, z: 8.07}
+  m_LocalPosition: {x: -8.61, y: 2, z: 8.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 929737291}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
 --- !u!114 &471980333
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
-  leftLook: 0
+  leftLook: 1
   canvasSpawnRot: 45
 --- !u!1001 &475553857
 PrefabInstance:
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 929737291}
   - component: {fileID: 929737290}
   m_Layer: 0
-  m_Name: CarSpawnManager
+  m_Name: '[CarSpawnManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,10 +669,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 471980332}
+  - {fileID: 1295930040}
   - {fileID: 1498997252}
   - {fileID: 1002555221}
-  - {fileID: 1295930040}
+  - {fileID: 471980332}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -701,7 +701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002555220}
   m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: -8.01, y: 2, z: 8.07}
+  m_LocalPosition: {x: -8.280001, y: 2, z: 20.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -721,8 +721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
-  leftLook: 1
-  canvasSpawnRot: 45
+  leftLook: 0
+  canvasSpawnRot: -45
 --- !u!1 &1295930039
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,12 +748,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295930039}
   m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
-  m_LocalPosition: {x: -8.280001, y: 2, z: 20.08}
+  m_LocalPosition: {x: 7.64, y: 2, z: 8.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 929737291}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &1295930041
 MonoBehaviour:
@@ -917,6 +917,50 @@ MonoBehaviour:
   carSettingsCanvas: {fileID: 5423275010330634333, guid: 3006bd43a307d844bac33eb83a954e48, type: 3}
   leftLook: 0
   canvasSpawnRot: 45
+--- !u!1 &1636978625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636978627}
+  - component: {fileID: 1636978626}
+  m_Layer: 0
+  m_Name: '[CarGeneralManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1636978626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636978625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5dbebf163b731408217ea7d75d4cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1636978627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636978625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762054412
 GameObject:
   m_ObjectHideFlags: 0

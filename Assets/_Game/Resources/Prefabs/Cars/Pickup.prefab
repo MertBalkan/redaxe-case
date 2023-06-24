@@ -10525,6 +10525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomizedMaterials: []
+  carTabPanel: {fileID: 2449635913863052542, guid: 933da8e4d5ae81940b4ff5f2468d81d6, type: 3}
 --- !u!114 &-7929726128498850539
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ namespace RedAxeCase
     {
         private Rigidbody[] _damagableParts;
         private ICarController _carController;
-        private ITabPanel _tabPanel;
         
         public CarDamageRandomizerSystem(ICarController carController, Rigidbody[] damagableParts)
         {
@@ -16,7 +15,7 @@ namespace RedAxeCase
             _carController = carController;
         }
 
-        public void Randomize(BasePartPanel partPanel)
+        public void Randomize(CarTabPanel tabPanel)
         {
             // Debug.LogWarning("Test");
         }

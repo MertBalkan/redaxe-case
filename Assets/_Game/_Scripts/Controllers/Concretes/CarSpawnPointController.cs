@@ -20,15 +20,25 @@ namespace RedAxeCase
         private void Start()
         {
             int randomIndex = Random.Range(0, _carSpawnPointManager.CarCount);
+            
             var car = Instantiate(_carSpawnPointManager.Cars[randomIndex], transform.localPosition, transform.localRotation);
+            // car.GetComponent<CarPartRandomizerLoader>().InitRandomizers();
+            
+            var carRcc = car.GetComponent<RCC_CarControllerV3>();
+            var carController = car.GetComponent<CarController>();
 
-            car.GetComponent<RCC_CarControllerV3>().canControl = false;
-            CallCoroutines(car);
+            carRcc.canControl = false;
+            
+            // CallCoroutines(car);
+            // car.GetComponent<CarPartRandomizerLoader>().StartRandomizer();
 
             Quaternion quat = new Quaternion();
 
-            quat = leftLook == true ? quat = Quaternion.Euler(0, transform.rotation.y - canvasSpawnRot, 0) :  quat = Quaternion.Euler(0, transform.rotation.y + canvasSpawnRot, 0);
-            Instantiate(carSettingsCanvas, transform.localPosition + new Vector3(2, 5, 2), quat);
+            quat = leftLook ? quat = Quaternion.Euler(0, transform.rotation.y - canvasSpawnRot, 0) :  quat = Quaternion.Euler(0, transform.rotation.y + canvasSpawnRot, 0);
+            var canvasSettingsGo = Instantiate(carSettingsCanvas, transform.localPosition + new Vector3(2, 5, 2), quat);
+
+            canvasSettingsGo.CarController = carController;
+
         }
 
         private void CallCoroutines(Transform car)
@@ -39,8 +49,7 @@ namespace RedAxeCase
 
         static private IEnumerator CallCarRandomizer(Transform car)
         {
-            yield return new WaitForSeconds(0.01f);
-            car.GetComponent<CarPartRandomizerLoader>().StartRandomizer();
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

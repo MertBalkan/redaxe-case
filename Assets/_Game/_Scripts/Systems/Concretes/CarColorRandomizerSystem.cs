@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEssentials.Extensions;
 
 namespace RedAxeCase
 {
@@ -14,9 +16,9 @@ namespace RedAxeCase
         
         private MeshRenderer[] _meshRenderers;
 
-        private List<Material> _randomizedMaterials;
+        private Dictionary<ICarController, Material> _randomizedMaterials;
 
-        public CarColorRandomizerSystem(ICarController carController, List<Material> randomizedMaterials)
+        public CarColorRandomizerSystem(ICarController carController, Dictionary<ICarController, Material> randomizedMaterials)
         {
             _carController = carController;
             var carControllerGo = _carController.Controller.gameObject;
@@ -24,10 +26,9 @@ namespace RedAxeCase
             
             _meshRenderers = carControllerGo.GetComponentsInChildren<MeshRenderer>();
             
-            _randomizedMaterials = new List<Material>();
         }
         
-        public void Randomize(BasePartPanel partPanel)
+        public void Randomize(CarTabPanel tabPanel)
         {
             var randBodyColor = GetRandomColor();
             var randRimColor = GetRandomColor();
@@ -37,24 +38,28 @@ namespace RedAxeCase
                 foreach (var mat in meshRenderer.materials)
                 {
                     if (mat.name.Contains(CarBodyMat))
-                        ChangeCarPartColor(mat, randBodyColor);
+                        ChangeCarPartColor("Body ", mat, randBodyColor, tabPanel);
                     if (mat.name.Contains(CarRimMat))
-                        ChangeCarPartColor(mat, randRimColor);
+                        ChangeCarPartColor("Tires ", mat, randRimColor, tabPanel);
                 }
             }
         }
 
-        private void ChangeCarPartColor(Material mat, Color color)
+        private void ChangeCarPartColor(string part, Material mat, Color color, CarTabPanel tabPanel)
         {
+            var colorPartPanel = tabPanel.GetComponentInChildren<ColorTabPanel>();
+
             mat.color = color;
-            AddRandomizedMaterial(mat);
+            AddRandomizedMaterial(_carController, mat);
+
+            colorPartPanel.AddNewPart(part + " Color: " + ExtColorToNames.FindColor(color), null);
         }
         
 
-        private void AddRandomizedMaterial(Material mat)
+        private void AddRandomizedMaterial(ICarController carController, Material mat)
         {
-            if (!_randomizedMaterials.Contains(mat)) 
-                _randomizedMaterials.Add(mat);
+            if(!_randomizedMaterials.ContainsKey(carController))
+                _randomizedMaterials.Add(carController, mat);
         }
 
         private Color GetRandomColor() => Random.ColorHSV();

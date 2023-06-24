@@ -8,38 +8,36 @@ namespace RedAxeCase
     public class CarPartRandomizerLoader : MonoBehaviour
     {
         private CarController _carController;
-        private List<Action<BasePartPanel>> _loader;
+        private List<Action<CarTabPanel>> _loader;
 
-        private void Start()
+        private void Awake()
         {
             _carController = GetComponent<CarController>();
-            _loader = new List<Action<BasePartPanel>>();
-            
-            AddRandomizers();
+            _loader = new List<Action<CarTabPanel>>();
         }
 
-        public void StartRandomizer()
+        public void InitRandomizers()
         {
-            LoadRandomizers(_loader, FindObjectOfType<PropertyPartPanel>());                
+            AddRandomizers();
+            StartRandomizer();
+        }
+
+        private void StartRandomizer()
+        {
+            if(CarGeneralManager.Instance.carDictionary[_carController] != null)
+                LoadRandomizers(_loader, CarGeneralManager.Instance.carDictionary[_carController]);                
         }
 
         private void AddRandomizers()
         {
-            try
-            {
-                foreach (var randomPart in _carController.randomizeParts)
-                    _loader.Add(randomPart.Randomize);
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning(e.Message);
-            }
+            foreach (var randomPart in _carController.RandomizeParts)
+                _loader.Add(randomPart.Randomize);
         }
 
-        private void LoadRandomizers(List<Action<BasePartPanel>> randomizeActions, BasePartPanel basePartPanel)
+        private void LoadRandomizers(List<Action<CarTabPanel>> randomizeActions, CarTabPanel tabPanel)
         {
             foreach (var randomizeAction in randomizeActions)
-                randomizeAction.Invoke(basePartPanel);
+                randomizeAction.Invoke(tabPanel);
         }
     }
 }

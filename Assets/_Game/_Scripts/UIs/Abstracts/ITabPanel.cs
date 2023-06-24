@@ -1,7 +1,9 @@
+using UnityEngine.UI;
+
 namespace RedAxeCase
 {
     public interface ITabPanel
     {
-        void PrintSettings();
+        public void AddNewPart<T>(T partName, Image partImage);
     }
 }
