@@ -1,22 +1,23 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RedAxeCase
 {
     public class GarageButton : MonoBehaviour
     {
         [SerializeField] private Transform garageCam;
+        
         public static int index = 0;
+        
         private Vector3 _initialPos;
 
         private void Start()
         {
-            index = 0;
             _initialPos = garageCam.position;
+            index = 0;         
         }
+
 
         private void Update()
         {
