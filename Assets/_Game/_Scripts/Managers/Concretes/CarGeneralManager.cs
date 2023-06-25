@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace RedAxeCase
 {
@@ -12,7 +9,6 @@ namespace RedAxeCase
         protected override void Awake()
         {
             base.Awake();
-            
             carDictionary = new Dictionary<CarController, CarTabPanel>();
         }
     }

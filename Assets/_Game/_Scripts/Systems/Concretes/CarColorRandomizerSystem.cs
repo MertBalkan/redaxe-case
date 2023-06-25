@@ -62,7 +62,7 @@ namespace RedAxeCase
                     }
                 }
 
-                CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= 5;
+                CarCostCalculatorManager.Instance.carCostDictionary[_carController] *= 5;
             }
             else
             {
@@ -76,7 +76,7 @@ namespace RedAxeCase
 
             if(mat == null)
             {
-                colorPartPanel.AddNewPart(part, null);
+                colorPartPanel.AddNewPart(part);
                 return;
             }
             
@@ -84,7 +84,7 @@ namespace RedAxeCase
             mat.color = color;
             AddRandomizedMaterial(_carController, mat);
 
-            colorPartPanel.AddNewPart(part + " Color: " + ExtColorToNames.FindColor(color), null);
+            colorPartPanel.AddNewPart(part + " Color: " + ExtColorToNames.FindColor(color));
         }
         
 

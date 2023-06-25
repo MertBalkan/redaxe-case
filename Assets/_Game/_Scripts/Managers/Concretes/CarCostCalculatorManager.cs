@@ -1,31 +1,38 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using UnityEngine.Serialization;
 
 namespace RedAxeCase
 {
     public class CarCostCalculatorManager : SingletonMonoBehaviour<CarCostCalculatorManager>
     {
-        public Dictionary<CarController, int> carValueDictionary;
+        public Dictionary<CarController, int> carCostDictionary;
+        public HashSet<int> initialCarCosts;
 
         protected override void Awake()
         {
             base.Awake();
-            carValueDictionary = new Dictionary<CarController, int>();
+            carCostDictionary = new Dictionary<CarController, int>();
+            initialCarCosts = new HashSet<int>();
         }
 
         public void InitCarValues(CarController carController)
         {
-            carValueDictionary.Add(carController, 1);
+            carCostDictionary.Add(carController, 1);
         }
 
         private void Update()
         {
-            // foreach (var keyValuePair in carValueDictionary)
-            // {
-            //     // Debug.LogWarning(keyValuePair.Key + "," + keyValuePair.Value);
-            // }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                List<CarController> tempList = new List<CarController>(carCostDictionary.Keys);
+                
+                foreach (var carController in tempList)
+                    carCostDictionary[carController] -= 100;
+            }
+
+            foreach (var keyValuePair in carCostDictionary)
+                Debug.LogWarning(keyValuePair.Key + "," + keyValuePair.Value);
         }
     }
 }

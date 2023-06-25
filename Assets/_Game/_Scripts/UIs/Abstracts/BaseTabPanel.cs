@@ -12,16 +12,16 @@ namespace RedAxeCase
         
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.4f * Time.deltaTime);
             gameObject.SetActive(false);
         }
 
-        public void AddNewPart<T>(T partName, Image partImage)
+        public void AddNewPart<T>(T partName)
         {
             var propertyPartUI = Instantiate(partUI, transform.position, transform.rotation, transform);
             _originalSize = propertyPartUI.transform.localScale;
             propertyPartUI.transform.localScale = _originalSize;
-            partUI.SetPart(partName, partImage);
+            partUI.SetPart(partName);
         }
     }
 }

@@ -1177,7 +1177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSettingsCanvas: {fileID: 5423275010330634333}
-  id: 0
 --- !u!1 &7520537172932193859
 GameObject:
   m_ObjectHideFlags: 0

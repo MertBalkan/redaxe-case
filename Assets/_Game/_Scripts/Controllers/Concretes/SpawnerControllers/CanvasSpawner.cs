@@ -27,9 +27,12 @@ namespace RedAxeCase
 
         public void HandleOnSpawn(CarController carController)
         {
-            Quaternion quat = new Quaternion();
+            var quat = new Quaternion();
 
-            quat = leftLook ? quat = Quaternion.Euler(0, transform.rotation.y - canvasSpawnRot, 0) :  quat = Quaternion.Euler(0, transform.rotation.y + canvasSpawnRot, 0);
+            quat = leftLook ? 
+            quat = Quaternion.Euler(0, transform.rotation.y - canvasSpawnRot, 0) :  
+            quat = Quaternion.Euler(0, transform.rotation.y + canvasSpawnRot, 0);
+            
             var canvasSettingsGo = Instantiate(carSettingsCanvas, transform.localPosition + new Vector3(2, 5, 2), quat);
 
             canvasSettingsGo.CarController = carController;

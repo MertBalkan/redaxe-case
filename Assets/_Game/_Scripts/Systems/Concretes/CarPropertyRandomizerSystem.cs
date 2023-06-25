@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 namespace RedAxeCase
 {
@@ -21,27 +22,31 @@ namespace RedAxeCase
         }
 
         private void SetCarProperties(CarTabPanel tabPanel)
-        {         
-            _carSpeed = Random.Range(200, 280);
-            _engineTorque = Random.Range(350, 480);
-            _suspensionsDistance = Random.Range(0.1f, 0.2f);
+        {
+            _carSpeed = GenerateRandomProperty(200, 280);
+            _engineTorque = GenerateRandomProperty(350, 480);
+            _suspensionsDistance = GenerateRandomProperty(0.1f, 0.2f);
             
             _carController.Controller.maxspeed = _carSpeed;
             _carController.Controller.maxEngineTorque = _engineTorque;
 
-            foreach (var wheelCollider in _carController.Controller.AllWheelColliders)
-            {
-                wheelCollider.WheelCollider.suspensionDistance = _suspensionsDistance;
-            }
+            _carController.Controller.AllWheelColliders.
+                ToList().
+                ForEach(w => w.WheelCollider.suspensionDistance = _suspensionsDistance);
             
             var propertyPartPanel = tabPanel.GetComponentInChildren<PropertyTabPanel>();
-            CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= (int)_carSpeed;
-            CarCostCalculatorManager.Instance.carValueDictionary[_carController] *= (int)_engineTorque;
-            CarCostCalculatorManager.Instance.carValueDictionary[_carController] += ((int)Mathf.Floor(_suspensionsDistance) * 100);
             
-            propertyPartPanel.AddNewPart("Engine Torque: " + _engineTorque, null); 
-            propertyPartPanel.AddNewPart("Car Speed: " + _carSpeed, null);
-            propertyPartPanel.AddNewPart("Suspension Distance: " + _suspensionsDistance, null);
+            CarCostCalculatorManager.Instance.carCostDictionary[_carController] *= (int)_carSpeed;
+            CarCostCalculatorManager.Instance.carCostDictionary[_carController] *= (int)_engineTorque;
+            CarCostCalculatorManager.Instance.carCostDictionary[_carController] += ((int)Mathf.Floor(_suspensionsDistance) * 100);
+            
+                
+            propertyPartPanel.AddNewPart("Engine Torque: " + _engineTorque); 
+            propertyPartPanel.AddNewPart("Car Speed: " + _carSpeed);
+            propertyPartPanel.AddNewPart("Suspension Distance: " + _suspensionsDistance);
         }
+        
+        private float GenerateRandomProperty (float min, float max) => Random.Range(min, max);
+        private int GenerateRandomProperty (int min, int max) => Random.Range(min, max);
     }
 }

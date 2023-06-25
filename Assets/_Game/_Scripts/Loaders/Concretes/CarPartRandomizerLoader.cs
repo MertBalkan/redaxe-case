@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace RedAxeCase
@@ -24,8 +23,10 @@ namespace RedAxeCase
 
         private void StartRandomizer()
         {
-            if( CarGeneralManager.Instance.carDictionary[_carController] != null)
-                LoadRandomizers(_loader, CarGeneralManager.Instance.carDictionary[_carController]);                
+            var carPanel = CarGeneralManager.Instance.carDictionary[_carController]; 
+            
+            if(carPanel != null)
+                LoadRandomizers(_loader, carPanel);                
         }
 
         private void AddRandomizers()

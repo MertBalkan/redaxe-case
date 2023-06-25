@@ -4,6 +4,6 @@ namespace RedAxeCase
 {
     public interface ITabPanel
     {
-        public void AddNewPart<T>(T partName, Image partImage);
+        public void AddNewPart<T>(T partName);
     }
 }

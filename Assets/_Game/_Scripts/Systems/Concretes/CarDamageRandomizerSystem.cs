@@ -1,22 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RedAxeCase
 {
     public class CarDamageRandomizerSystem : ICarRandomizePart
     {
-        private Rigidbody[] _damagableParts;
         private ICarController _carController;
         
-        public CarDamageRandomizerSystem(ICarController carController, Rigidbody[] damagableParts)
+        
+        public CarDamageRandomizerSystem(ICarController carController)
         {
-            _damagableParts = damagableParts;
             _carController = carController;
         }
 
         public void Randomize(CarTabPanel tabPanel)
         {
+            SetCarDamages(tabPanel);
+        }
+        
+        private void SetCarDamages(CarTabPanel tabPanel)
+        {
+            Debug.Log(tabPanel.name);   
         }
     }
 }
