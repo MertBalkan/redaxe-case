@@ -28,7 +28,7 @@ namespace RedAxeCase
         
         private void HandleOnSpawn(CarController carController)
         {
-            var dollarController = Instantiate(dollar, transform.position + new Vector3(5, 2, 1), Quaternion.identity);
+            var dollarController = Instantiate(dollar, transform.position + new Vector3(-3, 2, -3), Quaternion.identity);
             dollarController.SetCostToUI(carController);
         }
     }

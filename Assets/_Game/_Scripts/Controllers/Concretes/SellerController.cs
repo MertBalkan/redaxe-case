@@ -12,7 +12,6 @@ namespace RedAxeCase
             _marketController = FindObjectOfType<MarketController>();
         }
 
-
         private void Start()
         {
             _marketController.OnEnteredMarket += HandleOnMarketEntered;
@@ -27,14 +26,18 @@ namespace RedAxeCase
 
         private void HandleOnMarketEntered()
         {
-            sellerCam.gameObject.SetActive(true);
-            CursorMode.SetCursorMode(false);
+            SelectMarketMode(true, false);
         }
 
         private void HandleOnExitMarket()
         {
-            sellerCam.gameObject.SetActive(false);
-            CursorMode.SetCursorMode(true);
+            SelectMarketMode(false, true);
+        }
+        
+        private void SelectMarketMode(bool sellerMode, bool cursorMode)
+        {
+            sellerCam.gameObject.SetActive(sellerMode);
+            CursorMode.SetCursorMode(cursorMode);
         }
     }
 }

@@ -30,9 +30,6 @@ namespace RedAxeCase
                 foreach (var carController in tempList)
                     carCostDictionary[carController] -= 100;
             }
-
-            foreach (var keyValuePair in carCostDictionary)
-                Debug.LogWarning(keyValuePair.Key + "," + keyValuePair.Value);
         }
     }
 }

@@ -18,27 +18,36 @@ namespace RedAxeCase
         private void Start()
         {
             _marketController.OnEnteredMarket += HandleOnMarketEntered;
-            _marketController.OnExitMarket += HandleOnMarketExit;
+            _marketController.OnExitMarket    += HandleOnMarketExit;
+            _marketController.OnGotoGarage    += HandleOnGotoMarket;
         }
 
         private void OnDisable()
         {
             _marketController.OnEnteredMarket -= HandleOnMarketEntered;
-            _marketController.OnExitMarket -= HandleOnMarketExit;
+            _marketController.OnExitMarket    -= HandleOnMarketExit;
+            _marketController.OnGotoGarage    -= HandleOnGotoMarket;
         }
-        
+        private void HandleOnGotoMarket()
+        {
+            SelectMarketMode(false, true);
+        }
+
         public void HandleOnMarketEntered()
         {
-            fpsCam.gameObject.SetActive(false);
-            _firstPersonController.enabled = false;
-            CursorMode.SetCursorMode(true);
+            SelectMarketMode(false, true);
         }
 
         public void HandleOnMarketExit()
         {
-            fpsCam.gameObject.SetActive(true);
-            _firstPersonController.enabled = true;
-            CursorMode.SetCursorMode(false);
+            SelectMarketMode(true, false);
+        }
+
+        private void SelectMarketMode(bool fpsCamMode, bool cursorMode)
+        {
+            fpsCam.gameObject.SetActive(fpsCamMode);
+            _firstPersonController.enabled = fpsCamMode;
+            CursorMode.SetCursorMode(cursorMode);
         }
     }
 }
