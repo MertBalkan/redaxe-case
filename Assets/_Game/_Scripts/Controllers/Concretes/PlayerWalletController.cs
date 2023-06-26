@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace RedAxeCase
@@ -6,8 +7,10 @@ namespace RedAxeCase
     public class PlayerWalletController : MonoBehaviour
     {
         [SerializeField] private int moneyAmount;
-
-        public int MoneyAmount { get => moneyAmount; set => moneyAmount = value; }
+        [SerializeField] private TextMeshProUGUI moneyText;
+        private OfferPanel _offerPanel;
+        
+        public int MoneyAmount { get => moneyAmount; }
         public bool IsWalletEmpty => moneyAmount <= 0;
 
         private void Update()
@@ -16,6 +19,14 @@ namespace RedAxeCase
             {
                 moneyAmount += 100000;
             }
+
+            moneyText.text = "Your money: " + moneyAmount;
+        }
+
+        public void DecreaseMoney(int decreaseAmount)
+        {
+            if (moneyAmount <= 0) moneyAmount = 0;
+            moneyAmount -= decreaseAmount;
         }
     }
 }

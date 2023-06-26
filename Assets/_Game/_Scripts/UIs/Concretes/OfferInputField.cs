@@ -12,10 +12,5 @@ namespace RedAxeCase
         {
             _offerInputField = GetComponent<TMP_InputField>();
         }
-
-        private void Update()
-        {
-            Debug.Log("_offerInputField.text = " + _offerInputField.text);
-        }
     }
 }

@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace RedAxeCase
 {
@@ -15,18 +13,26 @@ namespace RedAxeCase
 
         private void Start()
         {
-            _spawnPointController.OnEntitySpawn += DisableRcc;
+            _spawnPointController.OnEntitySpawn += DisableRccAndCam;
         }
 
         private void OnDisable()
         {
-            _spawnPointController.OnEntitySpawn -= DisableRcc;
+            _spawnPointController.OnEntitySpawn -= DisableRccAndCam;
         }
 
-        public void DisableRcc(CarController carController)
+        private void DisableRccAndCam(CarController carController)
         {
             var carRcc = carController.GetComponent<RCC_CarControllerV3>();
             carRcc.enabled = false;
+            DisableCameras();
+        }
+
+        private void DisableCameras()
+        {
+            var carRccCams = FindObjectsOfType<RCC_Camera>();
+            foreach (var carRccCam in carRccCams)
+                carRccCam.gameObject.SetActive(false);
         }
     }
 }

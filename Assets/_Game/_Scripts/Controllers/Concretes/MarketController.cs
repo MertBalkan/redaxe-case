@@ -16,14 +16,6 @@ namespace RedAxeCase
             EnterMarket(other);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                CursorMode.SetCursorMode(true);
-            }
-        }
-
         public void EnterMarket(Collider other)
         {
             var player = other.GetComponent<PlayerCharacterController>();

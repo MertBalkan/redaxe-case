@@ -20,16 +20,5 @@ namespace RedAxeCase
         {
             carCostDictionary.Add(carController, 1);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Y))
-            {
-                List<CarController> tempList = new List<CarController>(carCostDictionary.Keys);
-                
-                foreach (var carController in tempList)
-                    carCostDictionary[carController] -= 100;
-            }
-        }
     }
 }

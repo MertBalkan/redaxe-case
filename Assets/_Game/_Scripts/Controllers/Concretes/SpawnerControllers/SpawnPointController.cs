@@ -23,10 +23,11 @@ namespace RedAxeCase
         }
 
         private IEnumerator Start()
-        {            
-            yield return new WaitForSeconds(0.1f * Time.deltaTime);
+        {
+            
+            yield return new WaitForSeconds(StartDelayTimeConst.UISpawnDelayTime);
             OnUISpawn?.Invoke(_carController);
-            yield return new WaitForSeconds(0.2f * Time.deltaTime);
+            yield return new WaitForSeconds(StartDelayTimeConst.CarSpawnDelayTime);
             OnEntitySpawn?.Invoke(_carController);
         }
     }

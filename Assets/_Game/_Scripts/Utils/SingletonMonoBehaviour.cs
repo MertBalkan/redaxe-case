@@ -12,9 +12,12 @@ namespace RedAxeCase
         protected virtual void Awake()
         {
             if (Instance != null && Instance != this) 
-                Destroy(this); 
-            else 
+                Destroy(this);
+            else
+            {
                 Instance = (T)this; 
+                DontDestroyOnLoad(Instance);
+            }
         }
     }
 }

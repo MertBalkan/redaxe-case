@@ -4,6 +4,7 @@ namespace RedAxeCase
 {
     public class GarageCameraController : MonoBehaviour
     {
+      
 
     }
 }

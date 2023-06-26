@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RedAxeCase
 {
@@ -12,7 +11,7 @@ namespace RedAxeCase
         
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.4f * Time.deltaTime);
+            yield return new WaitForSeconds(StartDelayTimeConst.TabPanelDisableDelayTime);
             gameObject.SetActive(false);
         }
 

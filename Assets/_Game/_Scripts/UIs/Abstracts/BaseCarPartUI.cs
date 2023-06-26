@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RedAxeCase
 {
@@ -10,17 +9,10 @@ namespace RedAxeCase
     {
         [SerializeField] private TextMeshProUGUI partText;
         private string _partType;
-        private CarController _carController;
-
 
         protected virtual void Awake()
         {
             partText = GetComponentInChildren<TextMeshProUGUI>();
-        }
-
-        private void Start()
-        {
-            _carController = GetComponentInParent<CarSettingsCanvas>().CarController;
         }
 
         public void SetPart<T>(T partType)

@@ -492,7 +492,8 @@ public class RCC_CarControllerV3 : RCC_Core {
 
     public RCC_TruckTrailer attachedTrailer;
 
-    private void Awake() {
+    private void Awake()
+    {
 
         // Setting max angular velocity of the rigid.
         Rigid.maxAngularVelocity = RCC_Settings.Instance.maxAngularVelocity;

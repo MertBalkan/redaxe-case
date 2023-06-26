@@ -6,6 +6,7 @@ namespace RedAxeCase
     public class CarController : MonoBehaviour, ICarController
     {
         [SerializeField] private CarTabPanel carTabPanel;
+        [SerializeField] private RCC_Camera rccCamera;
         
         private ICarRandomizePart _randomizedDamage;
         private ICarRandomizePart _randomizedProperty;
@@ -36,6 +37,23 @@ namespace RedAxeCase
         {
             CarCostCalculatorManager.Instance.InitCarValues(_carController);
         }
+        
+        private void OnTriggerStay(Collider other)
+        {
+       
+            var player = other.GetComponent<PlayerCharacterController>();
+
+            if (player != null && Input.GetKeyDown(KeyCode.E))
+                EnterCar(player);
+        }
+
+        private void EnterCar(PlayerCharacterController player)
+        {
+            player.FirstPersonController.enabled = false;
+            _controller.enabled = true;
+            rccCamera.gameObject.SetActive(true);
+        }
+
         
         public void SetRandomizeParts()
         {

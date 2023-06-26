@@ -6,10 +6,11 @@ namespace RedAxeCase
 {
     public class PlayerCharacterController : BaseCharacterController
     {
-        [SerializeField] private Transform fpsCam;
+        [SerializeField] private PlayerFollowCameraController fpsCam;
         private MarketController _marketController;
         private FirstPersonController _firstPersonController;
-        private OfferPanel _offerPanel;
+
+        public FirstPersonController FirstPersonController => _firstPersonController;
 
         private void Awake()
         {
@@ -19,15 +20,12 @@ namespace RedAxeCase
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.2f * Time.deltaTime);
-            _offerPanel = FindObjectOfType<OfferPanel>();
+            yield return new WaitForSeconds(StartDelayTimeConst.MarketEventSubscribeDelayTime);
             
-            Debug.Log("_offerPanel = " + _offerPanel);
             
             _marketController.OnEnteredMarket += HandleOnMarketEntered;
             _marketController.OnExitMarket    += HandleOnMarketExit;
             _marketController.OnGotoGarage    += HandleOnGotoGarage;
-            _offerPanel.OnCarSold             += HandleOnCarSold;
         }
 
         private void OnDisable()
@@ -35,7 +33,6 @@ namespace RedAxeCase
             _marketController.OnEnteredMarket -= HandleOnMarketEntered;
             _marketController.OnExitMarket    -= HandleOnMarketExit;
             _marketController.OnGotoGarage    -= HandleOnGotoGarage;
-            _offerPanel.OnCarSold             -= HandleOnCarSold;
         }
         private void HandleOnGotoGarage()
         {
@@ -48,11 +45,6 @@ namespace RedAxeCase
         }
 
         public void HandleOnMarketExit()
-        {
-            SetModes(true, false);
-        }
-        
-        private void HandleOnCarSold()
         {
             SetModes(true, false);
         }
