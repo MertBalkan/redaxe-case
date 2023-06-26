@@ -47,7 +47,8 @@ namespace RedAxeCase
 
             foreach (var keyValuePair in pairs)
             {
-                CarCostCalculatorManager.Instance.carCostDictionary[_carController] -= keyValuePair.Value;
+                var a = keyValuePair.Value * 4;
+                CarCostCalculatorManager.Instance.carCostDictionary[_carController] = a - CarCostCalculatorManager.Instance.carCostDictionary[_carController];
                 damagePartPanel.AddNewPart(keyValuePair.Key);
 
                 Debug.Log( " carController: " + _carController.name + " keyValuePair.Key = " + keyValuePair.Key + "keyValuePair.Value = " + keyValuePair.Value);
