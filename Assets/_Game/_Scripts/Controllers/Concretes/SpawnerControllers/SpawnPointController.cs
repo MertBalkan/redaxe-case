@@ -24,7 +24,6 @@ namespace RedAxeCase
 
         private IEnumerator Start()
         {
-            
             yield return new WaitForSeconds(StartDelayTimeConst.UISpawnDelayTime);
             OnUISpawn?.Invoke(_carController);
             yield return new WaitForSeconds(StartDelayTimeConst.CarSpawnDelayTime);

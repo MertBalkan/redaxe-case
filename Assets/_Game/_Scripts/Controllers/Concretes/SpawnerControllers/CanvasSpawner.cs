@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RedAxeCase
 {
@@ -9,6 +10,7 @@ namespace RedAxeCase
         [SerializeField] private float canvasSpawnRot = 45;
         
         private SpawnPointController _spawnPointController;
+        public CarSettingsCanvas CarSettingsCanvas;
 
         private void Awake()
         {
@@ -36,6 +38,7 @@ namespace RedAxeCase
             var canvasSettingsGo = Instantiate(carSettingsCanvas, transform.localPosition + new Vector3(2, 5, 2), quat);
 
             canvasSettingsGo.CarController = carController;
+            CarSettingsCanvas = canvasSettingsGo;
             carController.CarTabPanel = canvasSettingsGo.GetComponentInChildren<CarTabPanel>();
         }
     }

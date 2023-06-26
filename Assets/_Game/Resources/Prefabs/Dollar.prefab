@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 2912929942954109868}
   - component: {fileID: 2912929942954109869}
   - component: {fileID: 2912929942954109870}
-  - component: {fileID: 2912929942954109842}
+  - component: {fileID: 9039895048813286340}
   m_Layer: 5
   m_Name: CarCostCanvas
   m_TagString: Untagged
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2912929942954109842
+--- !u!114 &9039895048813286340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,10 +412,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2912929942954109871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baba80a2cff6e654db7df5ae0dfb1ba1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f0be13c3f73805449a6d9178c09e416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 0}
 --- !u!1 &2912929943586444818
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +426,7 @@ GameObject:
   - component: {fileID: 2912929943586444817}
   - component: {fileID: 2912929943586444823}
   - component: {fileID: 2912929943586444816}
-  - component: {fileID: 2912929943586444822}
+  - component: {fileID: 5565704964273456466}
   m_Layer: 5
   m_Name: CarSettingsPanel
   m_TagString: Untagged
@@ -494,7 +493,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2912929943586444822
+--- !u!114 &5565704964273456466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,16 +1,24 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RedAxeCase
 {
     public class GarageButton : MonoBehaviour
     {
+        // TODO: BARGAIN SYSTEM CONNECTION
         [SerializeField] private Transform garageCam;
+        [SerializeField] private CarSettingsCanvas[] carSettingsCanvas;
         
         public static int index = 0;
         
         private Vector3 _initialPos;
+
+        private void Awake()
+        {
+            carSettingsCanvas = FindObjectsOfType<CarSettingsCanvas>();
+        }
 
         private void Start()
         {

@@ -1,19 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RedAxeCase
 {
     public class CarPartRandomizerLoader : MonoBehaviour
     {
-        private CarController _carController;
+        [SerializeField] private CarController carController;
         private List<Action<CarTabPanel>> _loader;
 
         private void Awake()
         {
-            _carController = GetComponent<CarController>();
             _loader = new List<Action<CarTabPanel>>();
         }
+
 
         public void InitRandomizers()
         {
@@ -23,7 +25,7 @@ namespace RedAxeCase
 
         private void StartRandomizer()
         {
-            var carPanel = CarGeneralManager.Instance.carDictionary[_carController]; 
+            var carPanel = CarGeneralManager.Instance.carDictionary[carController]; 
             
             if(carPanel != null)
                 LoadRandomizers(_loader, carPanel);                
@@ -31,7 +33,7 @@ namespace RedAxeCase
 
         private void AddRandomizers()
         {
-            foreach (var randomPart in _carController.RandomizeParts)
+            foreach (var randomPart in carController.RandomizeParts)
                 _loader.Add(randomPart.Randomize);
         }
 

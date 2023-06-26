@@ -1,13 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RedAxeCase
 {
     public class CarDamageRandomizerSystem : ICarRandomizePart
     {
-        private ICarController _carController;
+        private CarController _carController;
+        
+        // I dont have time to left manage this code properly so i did just
+        // take them with a string values.
+        private Dictionary<string, int> carDamagePartsDictionary = new Dictionary<string, int>
+        {
+            {"Tires", 4},
+            {"Hood", 6},
+            {"Left Door", 5},
+            {"Right Door", 5},
+            {"Trunk", 4},
+            {"Front Bumper", 10},
+            {"Body", 10}
+        };
         
         
-        public CarDamageRandomizerSystem(ICarController carController)
+        public CarDamageRandomizerSystem(CarController carController)
         {
             _carController = carController;
         }
@@ -19,7 +34,31 @@ namespace RedAxeCase
         
         private void SetCarDamages(CarTabPanel tabPanel)
         {
-            Debug.Log(tabPanel.name);   
+            Debug.Log(tabPanel.name);
+            
+            var damagePartPanel = tabPanel.GetComponentInChildren<DamageTabPanel>();
+            var randomIndex = Random.Range(0, carDamagePartsDictionary.Count);
+            var pairs = new KeyValuePair<string, int>[randomIndex];
+
+            if(pairs.Length == 0) damagePartPanel.AddNewPart("Car has no damage"); 
+
+            for (int i = 0; i < randomIndex; i++)
+                pairs[i] = GetRandomElement();
+
+            foreach (var keyValuePair in pairs)
+            {
+                CarCostCalculatorManager.Instance.carCostDictionary[_carController] -= keyValuePair.Value;
+                damagePartPanel.AddNewPart(keyValuePair.Key);
+
+                Debug.Log( " carController: " + _carController.name + " keyValuePair.Key = " + keyValuePair.Key + "keyValuePair.Value = " + keyValuePair.Value);
+            }
+        }
+        
+        private KeyValuePair<string, int> GetRandomElement()
+        {
+            int randomIndex = Random.Range(0, carDamagePartsDictionary.Count);
+            KeyValuePair<string, int> randomElement = carDamagePartsDictionary.ElementAt(randomIndex);
+            return randomElement;
         }
     }
 }

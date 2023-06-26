@@ -9,6 +9,8 @@ namespace RedAxeCase
         private TextMeshProUGUI _costText;
         private CarController _carController;
 
+        public TextMeshProUGUI CostText => _costText;
+        
         private void Awake()
         {
             _costText = GetComponentInChildren<TextMeshProUGUI>();
@@ -19,6 +21,7 @@ namespace RedAxeCase
             foreach (var keyValuePair in CarCostCalculatorManager.Instance.carCostDictionary)
                 if(keyValuePair.Key == _carController)
                     _costText.text = FormatText(keyValuePair.Value.ToString());
+            
         }
 
         public void SetCostToUI(CarController carController)
@@ -29,7 +32,7 @@ namespace RedAxeCase
             _costText.text = FormatText(cost.ToString());
         }
 
-        private string FormatText(string text)
+        public string FormatText(string text)
         {
             if (Int32.TryParse(text, out int number))
                 return number.ToString("#,0");

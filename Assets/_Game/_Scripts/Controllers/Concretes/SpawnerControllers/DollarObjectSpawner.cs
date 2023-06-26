@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 namespace RedAxeCase
@@ -30,6 +26,9 @@ namespace RedAxeCase
         {
             var dollarController = Instantiate(dollar, transform.position + new Vector3(-3, 2, -3), Quaternion.identity);
             dollarController.SetCostToUI(carController);
+            
+            var carSettingsCanvasTransform = GetComponent<CanvasSpawner>().CarSettingsCanvas.transform;
+            dollarController.transform.SetParent(carSettingsCanvasTransform);
         }
     }
 }

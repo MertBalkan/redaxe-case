@@ -6319,6 +6319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4927013c44ecc094daf5d59bbee0475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carController: {fileID: 6099372295439768521}
 --- !u!65 &5526565236603762621
 BoxCollider:
   m_ObjectHideFlags: 0

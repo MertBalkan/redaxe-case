@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RedAxeCase
 {
     public class CarTabPanel : MonoBehaviour
     {
-        [SerializeField] private CarSettingsCanvas _carSettingsCanvas;
+        [SerializeField] private CarSettingsCanvas carSettingsCanvas;
         private void Start()
         {
-            CarGeneralManager.Instance.carDictionary.Add(_carSettingsCanvas.CarController, _carSettingsCanvas.CarController.CarTabPanel);
-            _carSettingsCanvas.CarController.SetRandomizeParts();
-            _carSettingsCanvas.CarController.CarPartRandomizerLoader.InitRandomizers();
+            CarGeneralManager.Instance.carDictionary.Add(carSettingsCanvas.CarController, carSettingsCanvas.CarController.CarTabPanel);
+            carSettingsCanvas.CarController.SetRandomizeParts();
+            carSettingsCanvas.CarController.CarPartRandomizerLoader.InitRandomizers();
         }
     }
 }
