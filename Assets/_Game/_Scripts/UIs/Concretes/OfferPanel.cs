@@ -1,28 +1,24 @@
 using StarterAssets;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RedAxeCase
 {
     public class OfferPanel : MonoBehaviour
     {
-        private OfferInputField _offerInputField;
         private CarSettingsCanvas _carSettingsCanvas;
         private CarCostCanvas _carCostCanvas;
         private PlayerWalletController _playerWalletController;
         private PlayerFollowCameraController _followCameraController;
         private GarageCanvas _garageCanvas;
-        private BargainSystem _bargainSystem;
 
         public System.Action OnCarSold;
         
         private void Start()
         {
             // TODO: Change this spagetti code.
-            
+            _carSettingsCanvas = GetComponentInParent<CarSettingsCanvas>();
             _playerWalletController = FindObjectOfType<PlayerWalletController>();
             _followCameraController = FindObjectOfType<PlayerFollowCameraController>();
-            _bargainSystem = FindObjectOfType<BargainSystem>();
         }
 
         public void BuyButton()
@@ -48,13 +44,6 @@ namespace RedAxeCase
         
             //changing pos
             _carSettingsCanvas.CarController.transform.position = PlayerGarageManager.Instance.PlayerGarageCarSpawner.transform.position;
-        }
-
-        public void MakeNewOffer(int newOffer)
-        {
-            _carSettingsCanvas = GetComponentInParent<CarSettingsCanvas>();
-            _offerInputField = GetComponentInChildren<OfferInputField>();
-            _bargainSystem.OnNewBargainOffered?.Invoke(_carSettingsCanvas);
         }
         
         private void SetCameraAndController()

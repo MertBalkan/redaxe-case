@@ -7,21 +7,11 @@ namespace RedAxeCase
 {
     public class BargainSystem : MonoBehaviour
     {
-        public System.Action<CarSettingsCanvas> OnNewBargainOffered;
-
+        [SerializeField] private TextMeshProUGUI offerStatus;
+        [SerializeField] private CarSettingsCanvas carSettingsCanvas;
         private bool isBargainingActive = true;
 
-        private void Start()
-        {
-            OnNewBargainOffered += MakeOffer;
-        }
-
-        private void OnDisable()
-        {
-            OnNewBargainOffered -= MakeOffer;
-        }
-
-        public void MakeOffer(CarSettingsCanvas carSettingsCanvas)
+        public void MakeOffer()
         {
             int initialPrice = Int32.Parse(carSettingsCanvas.GetComponentInChildren<OfferInputField>().OfferInputTMP.text);
             int minPrice = initialPrice - 10000;
@@ -41,6 +31,8 @@ namespace RedAxeCase
             if (randomOfferAmount < currentPrice)
             {
                 Debug.Log("Offer accepted! Item sold for $" + currentPrice);
+                offerStatus.text = "Offer accepted!";
+
                 var dollarController = carSettingsCanvas.GetComponentInChildren<DollarController>();
                 dollarController.CostText.text = dollarController.FormatText(randomOfferAmount.ToString());  
                 isBargainingActive = false;
@@ -54,7 +46,7 @@ namespace RedAxeCase
             
             else
             {
-                Debug.Log("Offer rejected!");
+                offerStatus.text = "Offer rejected!";
             }
         }
 
