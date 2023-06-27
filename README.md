@@ -1,10 +1,6 @@
 # redaxe-case
 Case project for RedAxe Games.
 
-![image](https://github.com/MertBalkan/redaxe-case/assets/43827959/20bc3c19-adf4-47e7-8459-0d4453a1f494)
-
-
-![image](https://github.com/MertBalkan/redaxe-case/assets/43827959/ef651349-ef71-472e-abb3-5b43a4038e29)
-
-
-![image](https://github.com/MertBalkan/redaxe-case/assets/43827959/f2f43d3a-cf78-4037-ab6b-0580dfe20111)
+![Screenshot 2023-06-27 133611](https://github.com/MertBalkan/redaxe-case/assets/43827959/052f98a0-b0c8-4539-a6f8-4ee8e5d67064)
+![Screenshot 2023-06-27 133649](https://github.com/MertBalkan/redaxe-case/assets/43827959/1e889f7a-2c68-4f5f-aef2-de7dff8ce545)
+![Screenshot 2023-06-27 133722](https://github.com/MertBalkan/redaxe-case/assets/43827959/ada5d4fd-3181-48d1-bd37-5dba68e15692)
