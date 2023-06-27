@@ -20,7 +20,7 @@ namespace RedAxeCase
         {
             foreach (var keyValuePair in CarCostCalculatorManager.Instance.carCostDictionary)
                 if(keyValuePair.Key == _carController)
-                    _costText.text = FormatText(keyValuePair.Value.ToString());
+                    _costText.text = keyValuePair.Value.ToString();
             
         }
 
@@ -29,7 +29,12 @@ namespace RedAxeCase
             _carController = carController;
             var cost = CarCostCalculatorManager.Instance.carCostDictionary[carController];
             
-            _costText.text = FormatText(cost.ToString());
+            _costText.text = (cost.ToString());
+        }
+
+        public void SetText(string text)
+        {
+            _costText.text = text;
         }
 
         public string FormatText(string text)

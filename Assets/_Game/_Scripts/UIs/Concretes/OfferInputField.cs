@@ -16,6 +16,11 @@ namespace RedAxeCase
             _offerInputField = GetComponent<TMP_InputField>();
         }
 
+        public void SetText(string text)
+        {
+            _offerInputField.text = text;
+        }
+
         public void FocusEnd()
         { 
             _offerValue = Int32.Parse(_offerInputField.text);

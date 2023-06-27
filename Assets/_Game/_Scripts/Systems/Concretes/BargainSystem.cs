@@ -13,7 +13,8 @@ namespace RedAxeCase
 
         public void MakeOffer()
         {
-            int initialPrice = Int32.Parse(carSettingsCanvas.GetComponentInChildren<OfferInputField>().OfferInputTMP.text);
+            var dollarController = carSettingsCanvas.GetComponentInChildren<DollarController>();
+            int initialPrice = Int32.Parse(dollarController.CostText.text);
             int minPrice = initialPrice - 10000;
             int maxPrice = initialPrice + 10000;
             int bargainStep = 100;
@@ -28,13 +29,12 @@ namespace RedAxeCase
             Debug.Log("randomOfferAmount = " + randomOfferAmount);
             Debug.Log("initialPrice = " + initialPrice);
             
-            if (randomOfferAmount < currentPrice)
+            if (randomOfferAmount > currentPrice)
             {
                 Debug.Log("Offer accepted! Item sold for $" + currentPrice);
                 offerStatus.text = "Offer accepted!";
 
-                var dollarController = carSettingsCanvas.GetComponentInChildren<DollarController>();
-                dollarController.CostText.text = dollarController.FormatText(randomOfferAmount.ToString());  
+                dollarController.SetText(randomOfferAmount.ToString());  
                 isBargainingActive = false;
             }
             
